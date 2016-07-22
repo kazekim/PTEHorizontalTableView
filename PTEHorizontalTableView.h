@@ -25,26 +25,26 @@
 
 @protocol PTETableViewDelegate <NSObject>
 
-- (NSInteger)tableView:(PTEHorizontalTableView *)horizontalTableView
+- (NSInteger)horizontalTableView:(PTEHorizontalTableView *)horizontalTableView
  numberOfRowsInSection:(NSInteger)section;
 
-- (UITableViewCell *)tableView:(PTEHorizontalTableView *)horizontalTableView
+- (UITableViewCell *)horizontalTableView:(PTEHorizontalTableView *)horizontalTableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath;
 
 @optional
 
 - (NSUInteger)numberOfSectionsInTableView:(PTEHorizontalTableView*)horizontalTableView;
 
-- (void)tableView:(PTEHorizontalTableView *)horizontalTableView
+- (void)horizontalTableView:(PTEHorizontalTableView *)horizontalTableView
 didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
 
-- (UIView*)tableView:(PTEHorizontalTableView*)horizontalTableView
+- (UIView*)horizontalTableView:(PTEHorizontalTableView*)horizontalTableView
 viewForHeaderInSection:(NSInteger)section;
 
-- (UIView*)tableView:(PTEHorizontalTableView*)horizontalTableView
+- (UIView*)horizontalTableView:(PTEHorizontalTableView*)horizontalTableView
 viewForFooterInSection:(NSInteger)section;
 
-- (CGFloat)tableView:(PTEHorizontalTableView *)horizontalTableView
+- (CGFloat)horizontalTableView:(PTEHorizontalTableView *)horizontalTableView
 widthForCellAtIndexPath:(NSIndexPath *)indexPath;
 
 @end
