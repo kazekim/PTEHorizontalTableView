@@ -26,33 +26,33 @@
 @protocol PTETableViewDelegate <NSObject>
 
 - (NSInteger)horizontalTableView:(PTEHorizontalTableView *)horizontalTableView
- numberOfRowsInSection:(NSInteger)section;
+           numberOfRowsInSection:(NSInteger)section;
 
 - (UITableViewCell *)horizontalTableView:(PTEHorizontalTableView *)horizontalTableView
-         cellForRowAtIndexPath:(NSIndexPath *)indexPath;
+                   cellForRowAtIndexPath:(NSIndexPath *)indexPath;
 
 @optional
 
 - (NSUInteger)numberOfSectionsInTableView:(PTEHorizontalTableView*)horizontalTableView;
 
 - (void)horizontalTableView:(PTEHorizontalTableView *)horizontalTableView
-didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
+    didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
 
 - (UIView*)horizontalTableView:(PTEHorizontalTableView*)horizontalTableView
-viewForHeaderInSection:(NSInteger)section;
+        viewForHeaderInSection:(NSInteger)section;
 
 - (UIView*)horizontalTableView:(PTEHorizontalTableView*)horizontalTableView
-viewForFooterInSection:(NSInteger)section;
+        viewForFooterInSection:(NSInteger)section;
 
 - (CGFloat)horizontalTableView:(PTEHorizontalTableView *)horizontalTableView
-widthForCellAtIndexPath:(NSIndexPath *)indexPath;
+       widthForCellAtIndexPath:(NSIndexPath *)indexPath;
 
 @end
 
 
 @interface PTEHorizontalTableView : UIView <UITableViewDelegate, UITableViewDataSource>
 
-@property (nonatomic, weak) IBOutlet id<PTETableViewDelegate> delegate;
+@property (nonatomic, weak) IBOutlet id<PTETableViewDelegate> pteDelegate;
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
 
 @property (nonatomic) CGFloat rowWidth;

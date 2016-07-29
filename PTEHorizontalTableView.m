@@ -74,14 +74,14 @@
 
 - (void)setContentOffset:(CGPoint)offset
 {
-	[self setContentOffset:offset
+    [self setContentOffset:offset
                   animated:NO];
 }
 
 - (void)setContentOffset:(CGPoint)offset
                 animated:(BOOL)animated
 {
-	[self.tableView setContentOffset:CGPointMake(offset.y, offset.x)
+    [self.tableView setContentOffset:CGPointMake(offset.y, offset.x)
                             animated:animated];
 }
 
@@ -105,9 +105,9 @@
 
 -(CGFloat)tableView:(UITableView*)tableView heightForHeaderInSection:(NSInteger)section
 {
-    if ([self.delegate respondsToSelector:@selector(horizontalTableView:viewForHeaderInSection:)])
+    if ([self.pteDelegate respondsToSelector:@selector(horizontalTableView:viewForHeaderInSection:)])
     {
-        UIView *headerView = [self.delegate horizontalTableView:self viewForHeaderInSection:section];
+        UIView *headerView = [self.pteDelegate horizontalTableView:self viewForHeaderInSection:section];
         return headerView.frame.size.width;
     }
     return 0.0;
@@ -115,9 +115,9 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
-    if ([self.delegate respondsToSelector:@selector(horizontalTableView:viewForFooterInSection:)])
+    if ([self.pteDelegate respondsToSelector:@selector(horizontalTableView:viewForFooterInSection:)])
     {
-        UIView *footerView = [self.delegate horizontalTableView:self viewForFooterInSection:section];
+        UIView *footerView = [self.pteDelegate horizontalTableView:self viewForFooterInSection:section];
         return footerView.frame.size.width;
     }
     return 0.0;
@@ -139,37 +139,37 @@
 
 -(UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    if ([self.delegate respondsToSelector:@selector(horizontalTableView:viewForHeaderInSection:)])
+    if ([self.pteDelegate respondsToSelector:@selector(horizontalTableView:viewForHeaderInSection:)])
     {
-		UIView *sectionView = [self.delegate horizontalTableView:self viewForHeaderInSection:section];
-		return [self viewToHoldSectionView:sectionView];
+        UIView *sectionView = [self.pteDelegate horizontalTableView:self viewForHeaderInSection:section];
+        return [self viewToHoldSectionView:sectionView];
     }
     return nil;
 }
 
 -(UIView*)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
 {
-    if ([self.delegate respondsToSelector:@selector(horizontalTableView:viewForFooterInSection:)])
+    if ([self.pteDelegate respondsToSelector:@selector(horizontalTableView:viewForFooterInSection:)])
     {
-		UIView *sectionView = [self.delegate horizontalTableView:self viewForFooterInSection:section];
-		return [self viewToHoldSectionView:sectionView];
+        UIView *sectionView = [self.pteDelegate horizontalTableView:self viewForFooterInSection:section];
+        return [self viewToHoldSectionView:sectionView];
     }
     return nil;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	if ([self.delegate respondsToSelector:@selector(horizontalTableView:didSelectRowAtIndexPath:)])
+    if ([self.pteDelegate respondsToSelector:@selector(horizontalTableView:didSelectRowAtIndexPath:)])
     {
-        [self.delegate horizontalTableView:self didSelectRowAtIndexPath:indexPath];
+        [self.pteDelegate horizontalTableView:self didSelectRowAtIndexPath:indexPath];
     }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if ([self.delegate respondsToSelector:@selector(horizontalTableView:widthForCellAtIndexPath:)])
+    if ([self.pteDelegate respondsToSelector:@selector(horizontalTableView:widthForCellAtIndexPath:)])
     {
-        return [self.delegate horizontalTableView:self widthForCellAtIndexPath:indexPath];
+        return [self.pteDelegate horizontalTableView:self widthForCellAtIndexPath:indexPath];
     }
     return tableView.rowHeight;
 }
@@ -178,21 +178,21 @@
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    if ([self.delegate respondsToSelector:@selector(numberOfSectionsInTableView:)])
+    if ([self.pteDelegate respondsToSelector:@selector(numberOfSectionsInTableView:)])
     {
-        return [self.delegate numberOfSectionsInTableView:self];
+        return [self.pteDelegate numberOfSectionsInTableView:self];
     }
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-	return [self.delegate horizontalTableView:self numberOfRowsInSection:section];
+    return [self.pteDelegate horizontalTableView:self numberOfRowsInSection:section];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)aTableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell * cell = [self.delegate horizontalTableView:self cellForRowAtIndexPath:indexPath];
+    UITableViewCell * cell = [self.pteDelegate horizontalTableView:self cellForRowAtIndexPath:indexPath];
     
     // Rotate if needed
     if (CGAffineTransformEqualToTransform(cell.contentView.transform, CGAffineTransformIdentity))
