@@ -205,5 +205,14 @@
     return cell;
 }
 
+#pragma mark - UIScrollView Delegate
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    if ([self.pteDelegate respondsToSelector:@selector(pteScrollViewDidEndDecelerating:)])
+    {
+        [self.pteDelegate pteScrollViewDidEndDecelerating:scrollView];
+    }
+}
 @end
 

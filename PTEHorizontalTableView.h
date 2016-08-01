@@ -47,6 +47,8 @@
 - (CGFloat)horizontalTableView:(PTEHorizontalTableView *)horizontalTableView
        widthForCellAtIndexPath:(NSIndexPath *)indexPath;
 
+- (void)pteScrollViewDidEndDecelerating:(UIScrollView *)scrollView;
+
 @end
 
 
